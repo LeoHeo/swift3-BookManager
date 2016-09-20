@@ -41,11 +41,11 @@ class ViewController: UIViewController {
         myBook.addBook(book3)
     }
     
-    @IBAction func showAllBookAction(_ sender: AnyObject) {
+    @IBAction func showAllBookAction(_ sender: UIButton) {
         outputTextView.text = myBook.shotAllBooks()
     }
     
-    @IBAction func addBookAction(_ sender: AnyObject) {
+    @IBAction func addBookAction(_ sender: UIButton) {
         let bookTemp:Book = Book()
         
         if nameTextField.text != "" || genreTextField.text != "" || authorTextField.text != "" {
@@ -62,7 +62,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func findBookAction(_ sender: AnyObject) {
+    @IBAction func findBookAction(_ sender: UIButton) {
         if let resultBook = myBook.findBook(nameTextField.text!) {
             outputTextView.text = resultBook
         } else {
@@ -70,7 +70,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func removeBookAction(_ sender: AnyObject) {
+    @IBAction func removeBookAction(_ sender: UIButton) {
         if myBook.removeBook(nameTextField.text!) {
             outputTextView.text = "\(nameTextField.text!)이 정상적으로 삭제되었습니다."
         } else {
