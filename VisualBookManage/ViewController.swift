@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     let myBook = BookManager()
     
+    @IBOutlet weak var TotalBookCountTextField: UILabel!
     @IBOutlet var outputTextView:UITextView!
     @IBOutlet var nameTextField:UITextField!
     @IBOutlet var genreTextField:UITextField!
@@ -39,6 +40,8 @@ class ViewController: UIViewController {
         myBook.addBook(book1)
         myBook.addBook(book2)
         myBook.addBook(book3)
+        
+        TotalBookCountTextField.text = "\(myBook.countBook())"
     }
     
     @IBAction func showAllBookAction(_ sender: UIButton) {
@@ -55,6 +58,8 @@ class ViewController: UIViewController {
             
             myBook.addBook(bookTemp)
             outputTextView.text = "\(nameTextField.text!) 도서가 등록되었습니다."
+            
+            TotalBookCountTextField.text = "\(myBook.countBook())"
             
             nameTextField.text = nil
             genreTextField.text = nil
@@ -73,6 +78,7 @@ class ViewController: UIViewController {
     @IBAction func removeBookAction(_ sender: UIButton) {
         if myBook.removeBook(nameTextField.text!) {
             outputTextView.text = "\(nameTextField.text!)이 정상적으로 삭제되었습니다."
+            TotalBookCountTextField.text = "\(myBook.countBook())"
         } else {
             outputTextView.text = "삭제 할 책이 존재하지 않습니다."
         }

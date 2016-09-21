@@ -43,6 +43,10 @@ class BookManager {
         return nil
     }
     
+    func countBook() -> Int {
+        return bookList.count
+    }
+    
     func removeBook(_ name:String) -> Bool {
         if let i = bookList.index(where: {$0.name == name}) {
             bookList.remove(at: i)
